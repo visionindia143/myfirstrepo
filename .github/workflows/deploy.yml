@@ -31,12 +31,12 @@ jobs:
             "$EC2_USER@$EC2_HOST" << 'EOF'
               set -e
 
-              if [ ! -d /var/www/gitman/.git ]; then
-                echo "ERROR: Git repository not found in /var/www/gitman"
+              if [ ! -d /var/www/html/gitman/.git ]; then
+                echo "ERROR: Git repository not found in /var/www/html/gitman"
                 exit 1
               fi
-
-              git -C /var/www/gitman pull origin main
+              
+              git -C /var/www/html/gitman pull origin main
 
               sudo systemctl reload apache2
           EOF
